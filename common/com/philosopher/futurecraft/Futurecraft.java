@@ -3,7 +3,6 @@ package com.philosopher.futurecraft;
 import net.minecraft.creativetab.CreativeTabs;
 
 import com.philosopher.core.WorldHandler;
-import com.philosopher.core.WorldHandler.OreCluster;
 import com.philosopher.futurecraft.block.ModBlocks;
 import com.philosopher.futurecraft.core.CommonProxy;
 import com.philosopher.futurecraft.core.CreativeTabHandler;
