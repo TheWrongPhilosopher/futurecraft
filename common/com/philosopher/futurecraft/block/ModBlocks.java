@@ -24,7 +24,9 @@ public class ModBlocks {
 	public static Block tinOre;
 	public static Block alumOre;
 	public static Block titanOre;
-	public static Block hsFurnace;
+	public static Block hsFurnaceIdle;
+	public static Block hsFurnaceActive;
+	public static Block machineHousing;
 	
 	public static void init() {
 		crysOre = new BlockOreFC(200, 0, Material.rock).setHardness(3.0F).setBlockName("crysOre");
@@ -32,21 +34,25 @@ public class ModBlocks {
 		tinOre = new BlockOreFC(202, 2, Material.rock).setHardness(3.0F).setBlockName("tinOre");
 		alumOre = new BlockOreFC(203, 3, Material.rock).setHardness(3.0F).setBlockName("alumOre");
 		titanOre = new BlockOreFC(204, 4, Material.rock).setHardness(3.0f).setBlockName("titanOre");
-		hsFurnace = new BlockHSFurnace(205, 5, Material.iron);
+		machineHousing = new BlockOreFC(205, 5, Material.iron).setHardness(3.5F).setBlockName("machineHousing");
+		hsFurnaceIdle = new BlockHSFurnace(206, 6, Material.iron, false);
+		hsFurnaceActive = new BlockHSFurnace(207, 6, Material.iron, true);
 		
 		LanguageRegistry.addName(crysOre, "Crystalite Ore");
 		LanguageRegistry.addName(copperOre, "Copper Ore");
 		LanguageRegistry.addName(tinOre, "Tin Ore");
 		LanguageRegistry.addName(alumOre, "Aluminum Ore");
 		LanguageRegistry.addName(titanOre, "Titanium Ore");
-		LanguageRegistry.addName(hsFurnace, "HighSpeed Furnace");
+		LanguageRegistry.addName(hsFurnaceIdle, "HighSpeed Furnace");
+		LanguageRegistry.addName(hsFurnaceActive, "HighSpeed Furnace");
 		
 		GameRegistry.registerBlock(crysOre, "crysOre");
 		GameRegistry.registerBlock(copperOre, "copperOre");
 		GameRegistry.registerBlock(tinOre, "tinOre");
 		GameRegistry.registerBlock(alumOre, "alumOre");
 		GameRegistry.registerBlock(titanOre, "titanOre");
-		GameRegistry.registerBlock(hsFurnace, "hsFurnace");
+		GameRegistry.registerBlock(hsFurnaceIdle, "hsFurnaceIdle");
+		GameRegistry.registerBlock(hsFurnaceActive, "hsFurnaceActive");
 		
 		OreDictionary.registerOre("oreCopper", new ItemStack(copperOre));
 		OreDictionary.registerOre("oreTin", new ItemStack(tinOre));
@@ -56,7 +62,8 @@ public class ModBlocks {
 		MinecraftForge.setBlockHarvestLevel(tinOre, "pickaxe", 1);
 		MinecraftForge.setBlockHarvestLevel(alumOre, "pickaxe", 2);
 		MinecraftForge.setBlockHarvestLevel(titanOre, "pickaxe", 2);
-		MinecraftForge.setBlockHarvestLevel(hsFurnace, "pickaxe", 2);
+		MinecraftForge.setBlockHarvestLevel(hsFurnaceIdle, "pickaxe", 2);
+		MinecraftForge.setBlockHarvestLevel(hsFurnaceActive, "pickaxe", 2);
 	}
 	
 	public static void generate() {

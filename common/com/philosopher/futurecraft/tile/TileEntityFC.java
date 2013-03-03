@@ -19,12 +19,12 @@ public class TileEntityFC extends TileEntity implements IConductor {
 
 	@Override
 	public void setReceiver(){
-		this.canReceive = true;
+		this.canReceive = false;
 	}
 
 	@Override
 	public void setGenerating() {
-		this.isGenerating = true;		
+		this.isGenerating = false;		
 	}
 	
 	

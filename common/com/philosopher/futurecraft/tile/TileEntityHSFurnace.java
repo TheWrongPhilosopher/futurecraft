@@ -9,6 +9,8 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.ISidedInventory;
 
+import com.philosopher.futurecraft.block.BlockHSFurnace;
+
 public class TileEntityHSFurnace extends TileEntityFC implements IInventory, ISidedInventory {
 	
 	private ItemStack[] furnaceItems = new ItemStack[2];
@@ -113,7 +115,8 @@ public class TileEntityHSFurnace extends TileEntityFC implements IInventory, ISi
 		
 		if (this.canSmelt())
         {
-            ++this.cookTime;
+            BlockHSFurnace.updateFurnaceBlockState(true, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
+			++this.cookTime;
 
             if (this.cookTime == 120)
             {
@@ -125,6 +128,7 @@ public class TileEntityHSFurnace extends TileEntityFC implements IInventory, ISi
         else
         {
             this.cookTime = 0;
+            BlockHSFurnace.updateFurnaceBlockState(false, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
         }
 
         if (workDone)
