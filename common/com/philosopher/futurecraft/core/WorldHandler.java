@@ -1,4 +1,4 @@
-package com.philosopher.core;
+package com.philosopher.futurecraft.core;
 
 import java.util.ArrayList;
 import java.util.List;

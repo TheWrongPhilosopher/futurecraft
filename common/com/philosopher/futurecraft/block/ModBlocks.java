@@ -6,7 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
 
-import com.philosopher.core.WorldHandler;
+import com.philosopher.futurecraft.core.WorldHandler;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
@@ -24,6 +24,7 @@ public class ModBlocks {
 	public static Block tinOre;
 	public static Block alumOre;
 	public static Block titanOre;
+	public static Block hsFurnace;
 	
 	public static void init() {
 		crysOre = new BlockOreFC(200, 0, Material.rock).setHardness(3.0F).setBlockName("crysOre");
@@ -31,18 +32,21 @@ public class ModBlocks {
 		tinOre = new BlockOreFC(202, 2, Material.rock).setHardness(3.0F).setBlockName("tinOre");
 		alumOre = new BlockOreFC(203, 3, Material.rock).setHardness(3.0F).setBlockName("alumOre");
 		titanOre = new BlockOreFC(204, 4, Material.rock).setHardness(3.0f).setBlockName("titanOre");
+		hsFurnace = new BlockHSFurnace(205, 5, Material.iron);
 		
 		LanguageRegistry.addName(crysOre, "Crystalite Ore");
 		LanguageRegistry.addName(copperOre, "Copper Ore");
 		LanguageRegistry.addName(tinOre, "Tin Ore");
 		LanguageRegistry.addName(alumOre, "Aluminum Ore");
 		LanguageRegistry.addName(titanOre, "Titanium Ore");
+		LanguageRegistry.addName(hsFurnace, "HighSpeed Furnace");
 		
 		GameRegistry.registerBlock(crysOre, "crysOre");
 		GameRegistry.registerBlock(copperOre, "copperOre");
 		GameRegistry.registerBlock(tinOre, "tinOre");
 		GameRegistry.registerBlock(alumOre, "alumOre");
 		GameRegistry.registerBlock(titanOre, "titanOre");
+		GameRegistry.registerBlock(hsFurnace, "hsFurnace");
 		
 		OreDictionary.registerOre("oreCopper", new ItemStack(copperOre));
 		OreDictionary.registerOre("oreTin", new ItemStack(tinOre));
@@ -52,6 +56,7 @@ public class ModBlocks {
 		MinecraftForge.setBlockHarvestLevel(tinOre, "pickaxe", 1);
 		MinecraftForge.setBlockHarvestLevel(alumOre, "pickaxe", 2);
 		MinecraftForge.setBlockHarvestLevel(titanOre, "pickaxe", 2);
+		MinecraftForge.setBlockHarvestLevel(hsFurnace, "pickaxe", 2);
 	}
 	
 	public static void generate() {

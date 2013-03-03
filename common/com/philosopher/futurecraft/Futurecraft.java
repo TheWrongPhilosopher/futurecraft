@@ -2,13 +2,15 @@ package com.philosopher.futurecraft;
 
 import net.minecraft.creativetab.CreativeTabs;
 
-import com.philosopher.core.WorldHandler;
 import com.philosopher.futurecraft.block.ModBlocks;
 import com.philosopher.futurecraft.core.CommonProxy;
 import com.philosopher.futurecraft.core.CreativeTabHandler;
+import com.philosopher.futurecraft.core.GuiHandler;
+import com.philosopher.futurecraft.core.WorldHandler;
 import com.philosopher.futurecraft.items.ModItems;
 import com.philosopher.futurecraft.lib.Recipes;
 import com.philosopher.futurecraft.lib.References;
+import com.philosopher.futurecraft.tile.TileEntityLoader;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
@@ -20,6 +22,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(modid="Futurecraft", name="Futurecraft", version="Super Beta Mode")
@@ -47,7 +50,9 @@ public class Futurecraft {
                 ModBlocks.generate();
                 ModItems.init();
                 Recipes.init();
+                TileEntityLoader.init();
                 GameRegistry.registerWorldGenerator(new WorldHandler());
+                NetworkRegistry.instance().registerGuiHandler(instance, new GuiHandler());
         }
         
         @PostInit
